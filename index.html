@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ojas Vaze | ML & AI Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #13131a;
+            --bg-tertiary: #1a1a24;
+            --text-primary: #e8e8ee;
+            --text-secondary: #a8a8b8;
+            --text-tertiary: #6b6b7f;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glow-blue: rgba(59, 130, 246, 0.15);
+            --glow-cyan: rgba(6, 182, 212, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--glow-blue);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .project-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.4rem 0.875rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .duration {
+            color: var(--text-tertiary);
+            font-size: 0.95rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+        }
+
+        .experience-item li {
+            color: var(--text-secondary);
+            margin-bottom: 0.875rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .experience-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Background gradient effect */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ojas Vaze</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Software Engineer</h1>
+                <p class="subtitle">Applied AI • Quantitative Systems • Real-Time Data Infrastructure</p>
+
+                <p class="hero-description">
+                I build production-grade systems that process real-time data and automate decision-making. My work spans algorithmic trading platforms, streaming market data pipelines, and applied machine learning systems built in Python.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Project
+    <div class="project-card" style="grid-column: 1 / -1;">
+        <div class="project-header">
+            <div class="project-icon">⚙️</div>
+            <div>
+                <h3>Event-Driven Algorithmic Trading System</h3>
+                <span class="project-status">Production System</span>
+            </div>
+        </div>
+
+        <p>Designed and built a real-time algorithmic trading platform that ingests live market data, generates trading signals, and executes automated orders via broker APIs.</p>
+
+        <ul>
+            <li>Architected modular Data, Strategy, and Order Execution engine</li>
+            <li>Integrated WebSocket + REST APIs for real-time and historical market data</li>
+            <li>Reverse-engineered undocumented broker SDK for live trading integration</li>
+            <li>Implemented event-driven strategy execution across multiple asset classes</li>
+            <li>Reduced execution latency from ~3–4s to under 1s using multithreading</li>
+            <li>Built configuration-driven system supporting multiple clients and strategies</li>
+        </ul>
+
+        <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">WebSockets</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">Multithreading</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">SQL</span>
+        </div>
+    </div> -->
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Research and engineering projects at the intersection of ML, AI, and real-world applications</p>
+            </div>
+            
+            <!-- Flagship Project -->
+            <div class="project-card" style="grid-column: 1 / -1;">
+                <div class="project-header">
+                    <div class="project-icon">⚙️</div>
+                    <div>
+                        <h3>Event-Driven Algorithmic Trading System</h3>
+                        <span class="project-status">Production System</span>
+                    </div>
+                </div>
+
+                <p>Designed and built a real-time algorithmic trading platform that ingests live market data, generates trading signals, and executes automated orders via broker APIs.</p>
+
+                <ul>
+                    <li>Architected modular Data, Strategy, and Order Execution engine</li>
+                    <li>Integrated WebSocket + REST APIs for real-time and historical market data</li>
+                    <li>Reverse-engineered undocumented broker SDK for live trading integration</li>
+                    <li>Implemented event-driven strategy execution across multiple asset classes</li>
+                    <li>Reduced execution latency from ~3–4s to under 1s using multithreading</li>
+                    <li>Built configuration-driven system supporting multiple clients and strategies</li>
+                </ul>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Multithreading</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">SQL</span>
+                </div>
+            </div>                
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📊</div>
+                    <div>
+                        <h3>Financial Market Forecasting Pipeline</h3>
+                        <span class="project-status">Ongoing</span>
+                    </div>
+                </div>
+                <p>End-to-end financial time-series forecasting system integrating transformer-based foundation models for probabilistic market prediction</p>
+                <ul>
+                    <li>Built an end-to-end pipeline to ingest, validate, cleanse, and preprocess OHLCV financial time-series data for forecasting workflows</li>
+                    <li>Integrated Amazon Chronos transformer-based foundation model for probabilistic forecasting across multiple financial instruments</li>
+                    <li>Designed a modular forecasting and evaluation framework supporting multiple configurations and prediction horizons</li>
+                    <li>Implemented benchmark comparisons against statistical baselines including naive and seasonal-naive models</li>
+                    <li>Evaluated performance using RMSE, MASE, MAPE, and directional accuracy metrics</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">HuggingFace</span>
+                    <span class="tech-tag">Amazon Chronos</span>
+                    <span class="tech-tag">Time Series</span>
+                </div>
+            </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📊</div>
+                        <div>
+                            <h3>Bankruptcy Prediction Ensemble</h3>
+                        </div>
+                    </div>
+                    <p>Advanced ensemble modeling system combining subgroup discovery with stacked classifiers</p>
+                    <ul>
+                        <li>Reduced dimensionality from 95 to 36 features using VIF analysis</li>
+                        <li>Implemented GMM clustering for subgroup-specific modeling</li>
+                        <li>Achieved 70% accuracy through ensemble stacking (8% improvement)</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">SVM</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📈</div>
+                        <div>
+                            <h3>Limex Trading Competition</h3>
+                        </div>
+                    </div>
+                    <p>Competitive algorithmic trading challenge developing and deploying quantitative strategies</p>
+                    <ul>
+                        <li>Designed and implemented systematic trading strategies</li>
+                        <li>Analyzed market microstructure and order flow dynamics</li>
+                        <li>Optimized execution algorithms for live market conditions</li>
+                        <li>Competed against other quantitative trading teams</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Algorithmic Trading</span>
+                        <span class="tech-tag">Quantitative Finance</span>
+                        <span class="tech-tag">Strategy Development</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🗺️</div>
+                        <div>
+                            <h3>NYC Street Art Map</h3>
+                        </div>
+                    </div>
+                    <p>Full-stack geospatial web application for discovering and contributing street art locations</p>
+                    <ul>
+                        <li>Built interactive mapping interface with Leaflet.js</li>
+                        <li>Implemented authentication and admin moderation system</li>
+                        <li>Designed MongoDB schema for geotagged user content</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Leaflet.js</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📣</div>
+                        <div>
+                            <h3>Marketing Reporting & Analytics Automation System (MARAS)</h3>
+                        </div>
+                    </div>
+                    <p>End-to-end marketing analytics platform simulating real-world campaign reporting and BI workflows with automated reporting and statistical analysis</p>
+                    <ul>
+                        <li>Built an end-to-end marketing analytics and reporting automation system simulating campaign reporting workflows</li>
+                        <li>Designed a SQL-based analytics warehouse using DuckDB to centralize multi-source marketing datasets (CSV, Excel, GA4-style event data, SPSS survey files)</li>
+                        <li>Implemented KPI computation engine for CTR, CPC, CPA, CVR, and ROAS</li>
+                        <li>Developed statistical analysis modules including t-tests, chi-square tests, and 95% confidence intervals for campaign evaluation</li>
+                        <li>Automated bi-weekly and quarterly reporting workflows generating multi-sheet Excel reports with pivot tables</li>
+                        <li>Built an interactive Streamlit dashboard enabling ad-hoc SQL analysis (JOIN, GROUP BY, CASE) over DuckDB</li>
+                        <li>Generated BI-ready exports including Tableau .hyper extracts and Power BI-compatible CSV datasets</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">DuckDB</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Tableau</span>
+                    </div>
+                </div>
+
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🧠</div>
+                        <div>
+                            <h3>LLM-Powered Data Analyst Agent for Automated Insights</h3>
+                        </div>
+                    </div>
+                    <p>AI-driven analytics system that converts natural language questions into SQL queries and automated business insights using LLMs</p>
+                    <ul>
+                        <li>Built an AI-powered analytics platform converting natural language business questions into executable SQL queries and insights</li>
+                        <li>Designed schema-aware prompting workflows for reliable text-to-SQL generation using OpenAI-compatible LLMs</li>
+                        <li>Implemented SQL validation guardrails restricting execution to safe SELECT-only statements</li>
+                        <li>Developed automated SQL repair and retry framework to improve query reliability</li>
+                        <li>Built modular architecture separating LLM inference, SQL generation, validation, execution, and UI layers</li>
+                        <li>Integrated DuckDB as a lightweight analytical engine for structured data exploration</li>
+                        <li>Developed Streamlit interface enabling end-to-end natural language analytics and BI exploration</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">DuckDB</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">LLMs</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <p>Building algorithmic systems and data-driven solutions</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Python Developer</h3>
+                        <p class="company">Millicent Technologies · Mumbai, India</p>
+                    </div>
+                    <span class="duration">Jun 2022 – Jul 2024</span>
+                </div>
+
+                <p>
+                    Built and owned a production-grade event-driven algorithmic trading platform from scratch, covering market data ingestion, strategy execution, and automated order placement across equities, commodities, and derivatives.
+                </p>
+
+                <ul>
+                    <li>Designed a modular event-driven architecture separating data ingestion, strategy execution, and order management layers for scalability and maintainability</li>
+
+                    <li>Built the core system orchestration layer handling application lifecycle, live trading workflows, and component coordination</li>
+
+                    <li>Integrated broker WebSocket and REST APIs for real-time tick-by-tick data streaming and historical OHLC retrieval</li>
+
+                    <li>Reverse engineered an undocumented broker SDK, analyzing callback behavior, event flows, and API structure to enable full platform integration</li>
+
+                    <li>Implemented automatic WebSocket reconnection and instrument resubscription logic for production-grade reliability during live trading</li>
+
+                    <li>Developed a configurable strategy engine supporting multiple technical indicators (EMA, RSI, MACD, Support/Resistance) and multi-timeframe execution</li>
+
+                    <li>Built event-driven signal lifecycle management (pending, triggered, executed, expired, cancelled) with duplicate signal prevention and trigger invalidation logic</li>
+
+                    <li>Implemented automated order execution pipeline connecting trading signals directly to broker APIs for entry, exit, stop-loss, and target orders</li>
+
+                    <li>Optimized system performance using multithreading and concurrent event processing, reducing signal-to-order latency from ~3–4s to sub-second execution</li>
+
+                    <li>Diagnosed and resolved production issues including race conditions, timestamp mismatches, order rejections, and live execution inconsistencies</li>
+
+                    <li>Validated strategies by comparing Python implementations against TradingView Pine Script backtesting and live market behavior</li>
+
+                    <li>Operated the live trading system during market hours, handling monitoring, debugging, logging, and iterative strategy improvements</li>
+                </ul>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Event-Driven Systems</span>
+                    <span class="tech-tag">Multithreading</span>
+                    <span class="tech-tag">Algorithmic Trading</span>
+                    <span class="tech-tag">Pine Script</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>Core competencies in machine learning, data engineering, and software development</p>
+            </div>
+            
+        <div class="skill-category">
+            <h3><span class="skill-icon">⚡</span> Core Engineering</h3>
+            <div class="skill-list">
+                <span class="skill-item">Python</span>
+                <span class="skill-item">Software Development</span>
+                <span class="skill-item">Object-Oriented Programming</span>
+                <span class="skill-item">Data Structures</span>
+                <span class="skill-item">Multithreading</span>
+                <span class="skill-item">Concurrent Programming</span>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><span class="skill-icon">💻</span> Languages</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">C++</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">HTML</span>
+                    <span class="skill-item">CSS</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">Pine Script</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><span class="skill-icon">🧠</span> ML & AI</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Machine Learning</span>
+                    <span class="skill-item">Artificial Intelligence</span>
+                    <span class="skill-item">Deep Learning</span>
+                    <span class="skill-item">Neural Networks</span>
+                    <span class="skill-item">PyTorch</span>
+                    <span class="skill-item">TensorFlow</span>
+                    <span class="skill-item">Scikit-Learn</span>
+                    <span class="skill-item">Keras</span>
+                    <span class="skill-item">Natural Language Processing</span>
+                    <span class="skill-item">Large Language Models (LLMs)</span>
+                    <span class="skill-item">Predictive Analytics</span>
+                    <span class="skill-item">Applied Artificial Intelligence</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><span class="skill-icon">📊</span> Data & Engineering</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Data Engineering</span>
+                    <span class="skill-item">Data Pipelines</span>
+                    <span class="skill-item">ETL</span>
+                    <span class="skill-item">Data Analysis</span>
+                    <span class="skill-item">Data Cleaning</span>
+                    <span class="skill-item">Feature Engineering</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">SQLite</span>
+                    <span class="skill-item">Data Visualization</span>
+                    <span class="skill-item">Power BI</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><span class="skill-icon">🛠️</span> Software Engineering & Systems</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">GitHub</span>
+                    <span class="skill-item">REST APIs</span>
+                    <span class="skill-item">WebSockets</span>
+                    <span class="skill-item">API Integration</span>
+                    <span class="skill-item">Backend Development</span>
+                    <span class="skill-item">System Design</span>
+                    <span class="skill-item">Software Architecture</span>
+                    <span class="skill-item">Debugging</span>
+                    <span class="skill-item">Logging</span>
+                    <span class="skill-item">Event-Driven Architecture</span>
+                    <span class="skill-item">JSON</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><span class="skill-icon">📈</span> Quant & Finance</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Algorithmic Trading</span>
+                    <span class="skill-item">Quantitative Analysis</span>
+                    <span class="skill-item">Quantitative Finance</span>
+                    <span class="skill-item">Financial Markets</span>
+                    <span class="skill-item">Technical Analysis</span>
+                    <span class="skill-item">Market Data</span>
+                    <span class="skill-item">Backtesting</span>
+                    <span class="skill-item">Time Series Forecasting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact">
+                <h2>Let's Connect</h2>
+                <p>Open to opportunities in ML/AI engineering and research roles</p>
+                <div class="contact-links">
+                    <a href="mailto:ojasvaze141@gmail.com" class="contact-link">
+                        📧 ojasvaze141@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/ojasvaze141" target="_blank" class="contact-link">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/SHINIGAMI141" target="_blank" class="contact-link">
+                        🔗 GitHub
+                    </a>
+                    <a href="tel:+15513768946" class="contact-link">
+                        📱 +1 551-376-8946
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ojas Vaze. Built with passion for ML and AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to nav
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
