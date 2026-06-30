@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ojas Vaze | ML & AI Engineer</title>
+    <title>Ojas Vaze | Quantitative Developer</title>
     <style>
         * {
             margin: 0;
@@ -529,10 +529,10 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero", id="about">
         <div class="container">
             <div class="hero-content">
-                <h1>Software Engineer</h1>
+                <h1>Quantitative Developer</h1>
                 <p class="subtitle">Applied AI • Quantitative Systems • Real-Time Data Infrastructure</p>
 
                 <p class="hero-description">
@@ -779,42 +779,70 @@
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
-                        <h3>Python Developer</h3>
+                        <h3>Quantitative Developer</h3>
                         <p class="company">Millicent Technologies · Mumbai, India</p>
                     </div>
                     <span class="duration">Jun 2022 – Jul 2024</span>
                 </div>
 
-                <p>
-                    Built and owned a production-grade event-driven algorithmic trading platform from scratch, covering market data ingestion, strategy execution, and automated order placement across equities, commodities, and derivatives.
+                <p class="experience-summary">
+                    Designed and built a production-grade event-driven algorithmic trading platform in Python for real-time strategy execution and automated trading across equities, commodities, and derivatives.
                 </p>
 
-                <ul>
-                    <li>Designed a modular event-driven architecture separating data ingestion, strategy execution, and order management layers for scalability and maintainability</li>
+                <!-- 1. Architecture -->
+                <div class="exp-section">
+                    <h4>System Architecture & Platform Design</h4>
+                    <ul>
+                        <li>Architected a modular event-driven system separating data ingestion, strategy execution, and order management for scalability and maintainability</li>
+                        <li>Built the core orchestration layer managing system lifecycle, live trading workflows, and inter-module coordination</li>
+                        <li>Owned end-to-end system design, deployment, and production maintenance</li>
+                    </ul>
+                </div>
 
-                    <li>Built the core system orchestration layer handling application lifecycle, live trading workflows, and component coordination</li>
+                <!-- 2. Market Data -->
+                <div class="exp-section">
+                    <h4>Market Data & Broker Integration</h4>
+                    <ul>
+                        <li>Integrated broker WebSocket and REST APIs for real-time tick-by-tick data and historical OHLC retrieval</li>
+                        <li>Reverse engineered an undocumented broker SDK by analyzing callback flows and event architecture</li>
+                        <li>Implemented automatic WebSocket reconnection and instrument resubscription for production reliability</li>
+                        <li>Processed JSON and binary market data streams, improving throughput and reducing latency</li>
+                    </ul>
+                </div>
 
-                    <li>Integrated broker WebSocket and REST APIs for real-time tick-by-tick data streaming and historical OHLC retrieval</li>
+                <!-- 3. Strategy Engine -->
+                <div class="exp-section">
+                    <h4>Strategy Engine & Signal Generation</h4>
+                    <ul>
+                        <li>Designed configurable strategy engine supporting EMA, RSI, MACD, and support/resistance-based strategies</li>
+                        <li>Built reusable workflows consuming live and historical data for signal generation</li>
+                        <li>Implemented signal lifecycle management (pending, triggered, executed, expired, cancelled)</li>
+                        <li>Validated Python strategies against TradingView Pine Script backtests and live market behavior</li>
+                    </ul>
+                </div>
 
-                    <li>Reverse engineered an undocumented broker SDK, analyzing callback behavior, event flows, and API structure to enable full platform integration</li>
+                <!-- 4. Execution -->
+                <div class="exp-section">
+                    <h4>Order Execution & Trading Infrastructure</h4>
+                    <ul>
+                        <li>Built automated order execution pipeline connecting signals directly to broker APIs</li>
+                        <li>Implemented entry, exit, stop-loss, and target order automation</li>
+                        <li>Supported multi-strategy and multi-instrument execution workflows</li>
+                    </ul>
+                </div>
 
-                    <li>Implemented automatic WebSocket reconnection and instrument resubscription logic for production-grade reliability during live trading</li>
+                <!-- 5. Performance -->
+                <div class="exp-section">
+                    <h4>Performance & Production Engineering</h4>
+                    <ul>
+                        <li>Reduced signal-to-order latency from ~3–4s to sub-second execution using multithreading</li>
+                        <li>Resolved race conditions, timestamp mismatches, and order execution inconsistencies</li>
+                        <li>Built structured logging and monitoring for ticks, signals, and orders</li>
+                        <li>Ensured stable live trading operations during market hours with full system ownership</li>
+                    </ul>
+                </div>
 
-                    <li>Developed a configurable strategy engine supporting multiple technical indicators (EMA, RSI, MACD, Support/Resistance) and multi-timeframe execution</li>
-
-                    <li>Built event-driven signal lifecycle management (pending, triggered, executed, expired, cancelled) with duplicate signal prevention and trigger invalidation logic</li>
-
-                    <li>Implemented automated order execution pipeline connecting trading signals directly to broker APIs for entry, exit, stop-loss, and target orders</li>
-
-                    <li>Optimized system performance using multithreading and concurrent event processing, reducing signal-to-order latency from ~3–4s to sub-second execution</li>
-
-                    <li>Diagnosed and resolved production issues including race conditions, timestamp mismatches, order rejections, and live execution inconsistencies</li>
-
-                    <li>Validated strategies by comparing Python implementations against TradingView Pine Script backtesting and live market behavior</li>
-
-                    <li>Operated the live trading system during market hours, handling monitoring, debugging, logging, and iterative strategy improvements</li>
-                </ul>
-
+                <!-- Tech Stack -->
                 <div class="tech-tags">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">WebSockets</span>
